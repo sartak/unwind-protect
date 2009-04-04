@@ -33,7 +33,10 @@ sub unwind_protect (&@) {
 
     $args{after}->() if $args{after};
 
-    die $exception if $exception;
+    do {
+        local $SIG{__DIE__};
+        die $exception if $exception;
+    };
 
     return @ret if $wantarray;
     return $ret[0] if defined $wantarray;
