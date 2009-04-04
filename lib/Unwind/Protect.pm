@@ -1,6 +1,7 @@
 package Unwind::Protect;
 use strict;
 use warnings;
+use Sub::Uplevel;
 use Sub::Exporter -setup => {
     exports => ['unwind_protect'],
     groups  => {
@@ -18,13 +19,13 @@ sub unwind_protect (&@) {
 
     eval {
         if ($wantarray) {
-            @ret = $code->();
+            @ret = uplevel 1, $code;
         }
         elsif (defined $wantarray) {
-            $ret[0] = $code->();
+            $ret[0] = uplevel 1, $code;
         }
         else {
-            $code->();
+            uplevel 1, $code;
         }
     };
 
