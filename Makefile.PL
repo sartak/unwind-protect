@@ -2,8 +2,8 @@
 use inc::Module::Install;
 
 # Define metadata
-name     'IO-Socket-Telnet';
-all_from 'lib/IO/Socket/Telnet.pm';
+name     'Unwind-Protect';
+all_from 'lib/Unwind/Protect.pm';
 githubmeta;
 
 requires 'Sub::Uplevel'    => '0.19';
