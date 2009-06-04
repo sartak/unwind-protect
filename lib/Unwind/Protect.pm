@@ -9,6 +9,8 @@ use Sub::Exporter -setup => {
     },
 };
 
+our $VERSION = 0.02;
+
 sub unwind_protect (&@) {
     my $code = shift;
     my %args = @_;
