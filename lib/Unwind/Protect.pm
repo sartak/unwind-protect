@@ -56,7 +56,7 @@ Unwind::Protect - Run code after other code, even with exceptions
 =head1 SYNOPSIS
 
     ++$depth;
-    
+
     unwind_protect { unsafe_function() }
       after => sub { --$depth };
 
